@@ -1,6 +1,6 @@
 # 实时货币等值转换工具
 
-这是一个只依赖 Python 标准库的桌面小工具，使用 `tkinter` 实现，支持 Windows 和 macOS 源码运行。Windows 可通过 GitHub Actions 自动打包为 `.exe`。
+这是一个只依赖 Python 标准库的桌面小工具，使用 `tkinter` 实现，支持 Windows 和 macOS 源码运行。GitHub Actions 可以自动打包 Windows `.exe` 和 macOS `.app.zip`。
 
 ## 本地运行
 
@@ -16,20 +16,23 @@ macOS:
 python3 currency_converter.py
 ```
 
-## 打包并发布 Windows EXE
+## 打包并发布桌面程序
 
 项目已配置 GitHub Actions：`.github/workflows/release.yml`。
 
-创建并推送版本标签后，GitHub 会自动打包 `.exe` 并上传到 Releases：
+创建并推送版本标签后，GitHub 会自动打包 Windows 和 macOS 版本，并上传到 Releases：
 
 ```powershell
 git tag v1.0.0
 git push origin v1.0.0
 ```
 
-完成后打开仓库右侧的 `Releases` 页面，即可下载 `currency-converter.exe`。
+完成后打开仓库右侧的 `Releases` 页面，即可下载：
 
-也可以进入 GitHub 仓库的 `Actions` 页面，选择 `Build Windows EXE`，点击 `Run workflow` 手动打包。手动运行时文件会出现在本次 workflow 的 `Artifacts` 里，不会自动创建 Release。
+- `currency-converter.exe`：Windows 版本
+- `currency-converter-macos.app.zip`：macOS 版本
+
+也可以进入 GitHub 仓库的 `Actions` 页面，选择 `Build Desktop Apps`，点击 `Run workflow` 手动打包。手动运行时文件会出现在本次 workflow 的 `Artifacts` 里，不会自动创建 Release。
 
 ## 外贸默认口径
 
