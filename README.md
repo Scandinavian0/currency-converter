@@ -1,8 +1,8 @@
 # 实时货币等值转换工具
 
-这是一个只依赖 Python 标准库的桌面小工具，使用 `tkinter` 实现，支持 Windows 和 macOS。
+这是一个只依赖 Python 标准库的桌面小工具，使用 `tkinter` 实现，支持 Windows 和 macOS 源码运行。Windows 可通过 GitHub Actions 自动打包为 `.exe`。
 
-## 运行方式
+## 本地运行
 
 Windows:
 
@@ -15,6 +15,21 @@ macOS:
 ```bash
 python3 currency_converter.py
 ```
+
+## 打包并发布 Windows EXE
+
+项目已配置 GitHub Actions：`.github/workflows/release.yml`。
+
+创建并推送版本标签后，GitHub 会自动打包 `.exe` 并上传到 Releases：
+
+```powershell
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+完成后打开仓库右侧的 `Releases` 页面，即可下载 `currency-converter.exe`。
+
+也可以进入 GitHub 仓库的 `Actions` 页面，选择 `Build Windows EXE`，点击 `Run workflow` 手动打包。手动运行时文件会出现在本次 workflow 的 `Artifacts` 里，不会自动创建 Release。
 
 ## 外贸默认口径
 
@@ -49,9 +64,9 @@ python3 currency_converter.py
 - 启动时每天最多联网比对一次中国银行外汇牌价。
 - 当窗口内容显示不完时，右侧会出现滚动条。
 
-## 汇率缓存
+## 本地缓存
 
-缓存文件默认保存在用户目录：
+汇率缓存默认保存在用户目录：
 
 ```text
 ~/.currency_converter_rates.json
